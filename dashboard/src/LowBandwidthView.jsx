@@ -19,7 +19,7 @@ function riskBadge(risk) {
 
 export default function LowBandwidthView() {
   return (
-    <div className="p-4 space-y-4">
+    <div className="pag-view-panel p-4 space-y-4">
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
         <p className="text-blue-800 text-sm font-semibold">📶 লো-ব্যান্ডউইথ মোড সক্রিয় (~50KB)</p>
         <p className="text-blue-600 text-xs mt-1">২জি নেটওয়ার্কের জন্য অপ্টিমাইজড ভিউ</p>

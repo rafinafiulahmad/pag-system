@@ -36,11 +36,11 @@ export default function LoginPage({ onLogin }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-800 to-green-600 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
+    <div className="pag-login flex items-center justify-center p-4">
+      <div className="pag-login-card bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="text-5xl mb-3">🌍</div>
+          <div className="pag-login-mark">◈</div>
           <h1 className="text-2xl font-bold text-gray-800">PAG System</h1>
           <p className="text-gray-500 text-sm mt-1">Predictive Anticipatory Governance</p>
           <p className="text-gray-400 text-xs mt-1">বাংলাদেশ দুর্যোগ পূর্বাভাস সিস্টেম</p>
@@ -84,7 +84,7 @@ export default function LoginPage({ onLogin }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-2 rounded-lg transition disabled:opacity-60"
+              className="login-submit w-full text-white font-semibold py-2 rounded-lg transition disabled:opacity-60"
           >
             {loading ? "লগইন হচ্ছে..." : "লগইন করুন"}
           </button>

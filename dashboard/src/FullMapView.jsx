@@ -44,12 +44,16 @@ export default function FullMapView() {
   }, []);
 
   return (
-    <div className="p-4">
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <div className="p-3 border-b border-gray-200">
-          <h2 className="font-bold text-gray-800">🗺️ ইন্টারেক্টিভ ঝুঁকি মানচিত্র (Leaflet)</h2>
+    <div className="pag-view-panel p-4">
+      <div className="pag-map-card bg-white rounded-lg shadow overflow-hidden">
+        <div className="map-heading p-3 border-b border-gray-200">
+          <div>
+            <h2 className="font-bold text-gray-800">ইন্টারেক্টিভ ঝুঁকি মানচিত্র</h2>
+            <p>Bangladesh · multi-hazard monitoring layer</p>
+          </div>
+          <span className="text-xs text-green-700 font-semibold">● Live signal layer</span>
         </div>
-        <div ref={mapRef} style={{ height: '450px', width: '100%' }} />
+        <div ref={mapRef} className="pag-leaflet" style={{ height: '450px', width: '100%' }} />
       </div>
     </div>
   );

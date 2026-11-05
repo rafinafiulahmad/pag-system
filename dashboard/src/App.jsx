@@ -51,23 +51,26 @@ export default function App() {
   if (!user) return <LoginPage onLogin={handleLogin} />;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pag-shell min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-green-700 text-white shadow-lg">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-          <div>
-            <h1 className="text-xl font-bold">🌍 PAG System — বাংলাদেশ</h1>
-            <p className="text-green-200 text-xs">Predictive Anticipatory Governance</p>
+      <header className="pag-header text-white">
+        <div className="pag-header-inner max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="pag-brand">
+            <div className="pag-mark">◈</div>
+            <div>
+              <h1 className="text-xl font-bold">PAG System — বাংলাদেশ</h1>
+              <p className="text-green-200 text-xs">Predictive Anticipatory Governance · <span className="pag-live">Live operations</span></p>
+            </div>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-green-200 text-xs hidden md:block">আপডেট: {lastUpdate}</span>
-            <span className={`text-xs px-2 py-1 rounded-full font-semibold ${ROLE_BADGE[user.role] || ROLE_BADGE.viewer}`}>
+            <span className="last-update text-green-200 text-xs hidden md:block">আপডেট: {lastUpdate}</span>
+            <span className={`role-pill text-xs px-2 py-1 rounded-full font-semibold ${ROLE_BADGE[user.role] || ROLE_BADGE.viewer}`}>
               {user.role.toUpperCase()}
             </span>
-            <span className="text-sm text-green-100">{user.full_name || user.username}</span>
+            <span className="user-name text-sm text-green-100">{user.full_name || user.username}</span>
             <button
               onClick={() => setLowBandwidth(!lowBandwidth)}
-              className={`px-3 py-1 rounded-full text-xs font-semibold transition ${
+              className={`mode-button px-3 py-1 rounded-full text-xs font-semibold transition ${
                 lowBandwidth ? 'bg-yellow-400 text-yellow-900' : 'bg-white text-green-800'
               }`}
             >
@@ -75,7 +78,7 @@ export default function App() {
             </button>
             <button
               onClick={handleLogout}
-              className="px-3 py-1 bg-red-600 hover:bg-red-700 rounded-full text-xs font-semibold transition"
+              className="logout-button px-3 py-1 rounded-full text-xs font-semibold transition"
             >
               লগআউট
             </button>
@@ -84,10 +87,10 @@ export default function App() {
       </header>
 
       {/* Stats */}
-      <div className="max-w-6xl mx-auto px-4 py-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="pag-stat-grid max-w-6xl mx-auto px-4 py-4 grid grid-cols-2 md:grid-cols-4 gap-3">
         {STATS.map((s, i) => (
-          <div key={i} className={`rounded-lg p-3 ${s.color} flex items-center gap-2 shadow-sm`}>
-            <span className="text-2xl">{s.icon}</span>
+          <div key={i} className={`pag-stat rounded-lg p-3 ${s.color} flex items-center gap-2 shadow-sm`}>
+            <span className="stat-icon text-2xl">{s.icon}</span>
             <div>
               <p className="text-xs opacity-70">{s.label}</p>
               <p className="text-lg font-bold">{s.value}</p>
@@ -97,11 +100,11 @@ export default function App() {
       </div>
 
       {/* Main view */}
-      <div className="max-w-6xl mx-auto px-4 pb-8">
+      <div className="pag-content max-w-6xl mx-auto px-4 pb-8">
         {lowBandwidth ? <LowBandwidthView /> : <FullMapView />}
       </div>
 
-      <footer className="bg-gray-800 text-gray-400 text-center py-3 text-xs">
+      <footer className="pag-footer text-center py-3 text-xs">
         PAG System v2.0 · © 2026 Nafiul Ahmad Rafi · MIT License
       </footer>
     </div>
